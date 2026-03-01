@@ -1,0 +1,441 @@
+2026-03-01 20:12:51 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 20:12:51 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 20:12:51 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 20:12:51 | DEBUG    | telegram.ext.ExtBot | Set Bot API URL: https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c
+2026-03-01 20:12:51 | DEBUG    | telegram.ext.ExtBot | Set Bot API File URL: https://api.telegram.org/file/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c
+2026-03-01 20:12:51 | INFO     | __main__ | Обработчики зарегистрированы: /start, текст сообщений
+2026-03-01 20:12:51 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 20:12:51 | DEBUG    | asyncio | Using proactor: IocpProactor
+2026-03-01 20:12:51 | DEBUG    | telegram.ext | Network Retry Loop (Bootstrap Initialize Application): Starting
+2026-03-01 20:12:51 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getMe` with parameters `{}`
+2026-03-01 20:12:51 | DEBUG    | httpcore.connection | connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2026-03-01 20:12:52 | DEBUG    | httpcore.connection | connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001D437FEEE60>
+2026-03-01 20:12:52 | DEBUG    | httpcore.connection | start_tls.started ssl_context=<ssl.SSLContext object at 0x000001D437E01540> server_hostname='api.telegram.org' timeout=5.0
+2026-03-01 20:12:52 | DEBUG    | httpcore.connection | start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001D437FEDD50>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:12:52 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'329'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:12:52 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getMe "HTTP/1.1 200 OK"
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getMe` finished with return value `{'id': 7773316241, 'is_bot': True, 'first_name': 'Promtinginiring_test', 'username': 'Promting25_bot', 'can_join_groups': True, 'can_read_all_group_messages': False, 'supports_inline_queries': False, 'can_connect_to_business': False, 'has_main_web_app': False, 'has_topics_enabled': False, 'allows_users_to_create_topics': False}`
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.ExtBot | This Bot is already initialized.
+2026-03-01 20:12:52 | DEBUG    | telegram.ext | Network Retry Loop (Bootstrap Initialize Application): Action succeeded. Stopping loop.
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.Updater | Updater started (polling)
+2026-03-01 20:12:52 | DEBUG    | telegram.ext | Network Retry Loop (Bootstrap delete Webhook): Starting
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.Updater | Deleting webhook
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `deleteWebhook` with parameters `{}`
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:12:52 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'68'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:12:52 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:12:52 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `deleteWebhook` finished with return value `True`
+2026-03-01 20:12:52 | DEBUG    | telegram.ext | Network Retry Loop (Bootstrap delete Webhook): Action succeeded. Stopping loop.
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.Updater | Bootstrap done
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.Updater | Waiting for polling to start
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.Updater | Polling updates from Telegram started
+2026-03-01 20:12:52 | DEBUG    | telegram.ext | Network Retry Loop (Polling Updates): Starting
+2026-03-01 20:12:52 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:12:52 | INFO     | telegram.ext.Application | Application started
+2026-03-01 20:12:52 | DEBUG    | httpcore.connection | connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2026-03-01 20:12:52 | DEBUG    | httpcore.connection | connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001D438098CA0>
+2026-03-01 20:12:52 | DEBUG    | httpcore.connection | start_tls.started ssl_context=<ssl.SSLContext object at 0x000001D437F921C0> server_hostname='api.telegram.org' timeout=5.0
+2026-03-01 20:12:55 | DEBUG    | httpcore.connection | start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001D437FED5D0>
+2026-03-01 20:12:55 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:12:55 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:12:55 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:12:55 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:12:55 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:13:05 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'23'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:13:05 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getUpdates "HTTP/1.1 200 OK"
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:13:05 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getUpdates` finished with return value `[]`
+2026-03-01 20:13:05 | DEBUG    | telegram.ext.ExtBot | No new updates found.
+2026-03-01 20:13:05 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:13:05 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:13:16 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'23'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:13:16 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getUpdates "HTTP/1.1 200 OK"
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:13:16 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getUpdates` finished with return value `[]`
+2026-03-01 20:13:16 | DEBUG    | telegram.ext.ExtBot | No new updates found.
+2026-03-01 20:13:16 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:13:16 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:13:26 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'23'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:13:26 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getUpdates "HTTP/1.1 200 OK"
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:13:26 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getUpdates` finished with return value `[]`
+2026-03-01 20:13:26 | DEBUG    | telegram.ext.ExtBot | No new updates found.
+2026-03-01 20:13:26 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:13:26 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:13:36 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'23'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:13:36 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getUpdates "HTTP/1.1 200 OK"
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:13:36 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getUpdates` finished with return value `[]`
+2026-03-01 20:13:36 | DEBUG    | telegram.ext.ExtBot | No new updates found.
+2026-03-01 20:13:36 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:13:36 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:13:46 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'23'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:13:46 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getUpdates "HTTP/1.1 200 OK"
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:13:46 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getUpdates` finished with return value `[]`
+2026-03-01 20:13:46 | DEBUG    | telegram.ext.ExtBot | No new updates found.
+2026-03-01 20:13:46 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:13:46 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:13:56 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'23'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:13:56 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getUpdates "HTTP/1.1 200 OK"
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:13:56 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getUpdates` finished with return value `[]`
+2026-03-01 20:13:56 | DEBUG    | telegram.ext.ExtBot | No new updates found.
+2026-03-01 20:13:56 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:13:56 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Sun, 01 Mar 2026 16:14:06 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'23'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2026-03-01 20:14:06 | INFO     | httpx | HTTP Request: POST https://api.telegram.org/bot7773316241:AAH94gWuCZ84MJb1-inRq5D9p1F4F05GL-c/getUpdates "HTTP/1.1 200 OK"
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | receive_response_body.started request=<Request [b'POST']>
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | receive_response_body.complete
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | response_closed.started
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | response_closed.complete
+2026-03-01 20:14:06 | DEBUG    | telegram.ext.ExtBot | Call to Bot API endpoint `getUpdates` finished with return value `[]`
+2026-03-01 20:14:06 | DEBUG    | telegram.ext.ExtBot | No new updates found.
+2026-03-01 20:14:06 | DEBUG    | telegram.ext.ExtBot | Calling Bot API endpoint `getUpdates` with parameters `{'timeout': datetime.timedelta(seconds=10), 'offset': 0, 'allowed_updates': [<UpdateType.MESSAGE>, <UpdateType.EDITED_MESSAGE>, <UpdateType.CHANNEL_POST>, <UpdateType.EDITED_CHANNEL_POST>, <UpdateType.INLINE_QUERY>, <UpdateType.CHOSEN_INLINE_RESULT>, <UpdateType.CALLBACK_QUERY>, <UpdateType.SHIPPING_QUERY>, <UpdateType.PRE_CHECKOUT_QUERY>, <UpdateType.POLL>, <UpdateType.POLL_ANSWER>, <UpdateType.MY_CHAT_MEMBER>, <UpdateType.CHAT_MEMBER>, <UpdateType.CHAT_JOIN_REQUEST>, <UpdateType.CHAT_BOOST>, <UpdateType.REMOVED_CHAT_BOOST>, <UpdateType.MESSAGE_REACTION>, <UpdateType.MESSAGE_REACTION_COUNT>, <UpdateType.BUSINESS_CONNECTION>, <UpdateType.BUSINESS_MESSAGE>, <UpdateType.EDITED_BUSINESS_MESSAGE>, <UpdateType.DELETED_BUSINESS_MESSAGES>, <UpdateType.PURCHASED_PAID_MEDIA>]}`
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | send_request_headers.started request=<Request [b'POST']>
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | send_request_headers.complete
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | send_request_body.started request=<Request [b'POST']>
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | send_request_body.complete
+2026-03-01 20:14:06 | DEBUG    | httpcore.http11 | receive_response_headers.started request=<Request [b'POST']>
+2026-03-01 20:14:30 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 20:14:30 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 20:14:31 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 20:14:31 | INFO     | __main__ | Обработчики зарегистрированы: /start, текст сообщений
+2026-03-01 20:14:31 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 20:16:58 | INFO     | __main__ | Команда /start | user_id=202947918 username=murs51Luma chat_id=202947918
+2026-03-01 20:16:59 | DEBUG    | __main__ | Ответ на /start отправлен
+2026-03-01 20:17:51 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='stats'
+2026-03-01 20:17:52 | DEBUG    | __main__ | Фильтр по вопросу: None
+2026-03-01 20:17:52 | INFO     | __main__ | Инициализация RAG pipeline...
+2026-03-01 20:17:57 | INFO     | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-03-01 20:17:57 | DEBUG    | chromadb.config | Starting component System
+2026-03-01 20:17:57 | DEBUG    | chromadb.config | Starting component Posthog
+2026-03-01 20:17:58 | INFO     | __main__ | RAG pipeline инициализирован
+2026-03-01 20:17:58 | INFO     | __main__ | Запрос в RAG: question='stats'
+2026-03-01 20:17:58 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): us.i.posthog.com:443
+2026-03-01 20:17:58 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'idempotency_key': 'stainless-python-retry-ff3291b0-9607-4c77-bdbc-167b013d60ef', 'post_parser': <function Embeddings.create.<locals>.parser at 0x000001F7A18BB910>, 'content': None, 'json_data': {'input': 'stats', 'model': 'text-embedding-3-small', 'encoding_format': 'base64'}}
+2026-03-01 20:17:58 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/embeddings
+2026-03-01 20:17:58 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 20:18:01 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/embeddings "200 OK" Headers({'date': 'Sun, 01 Mar 2026 16:18:01 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'access-control-expose-headers': 'X-Request-ID', 'openai-model': 'text-embedding-3-small', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '52', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'via': 'envoy-router-569f44f5d8-l9h2j', 'x-ratelimit-limit-requests': '3000', 'x-ratelimit-limit-tokens': '1000000', 'x-ratelimit-remaining-requests': '2999', 'x-ratelimit-remaining-tokens': '999999', 'x-ratelimit-reset-requests': '20ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_60ae742add8f4cd2a289704be9a63828', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=c9qrwFNkb9MPBvQZPqr7_FK84gLXH3asG2dXrQCqFfg-1772381878.6423714-1.0.1.1-M9bid0JDAJKCGo0ghQ7wDy1T5dWzw4dvjuy232bIRwLQrDTiePpNYxL.Tp3H1Ofmqef4ehZXqIPd7ysoouwYd2nzxdLsgeEA7fNjmTJBVvpOYOhaxLug.k3Cgk5OJIgF; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 16:48:01 GMT', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d5979958f81292a-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 20:18:01 | DEBUG    | openai._base_client | request_id: req_60ae742add8f4cd2a289704be9a63828
+2026-03-01 20:18:01 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-48a968c5-7625-4254-b2bd-1837e77a4a21', 'content': None, 'json_data': {'messages': [{'role': 'system', 'content': 'Ты - полезный AI ассистент, который отвечает на вопросы на основе предоставленного контекста.'}, {'role': 'user', 'content': 'Ты - полезный AI ассистент. Ответь на вопрос пользователя на основе предоставленного контекста.\n\nКонтекст (у каждого фрагмента указан источник — документ и/или кодекс):\n[Документ 1, Источник: gk_rf2, кодекс: ГК РФ]\nническое задание и согласовать с ним программу (технико-экономические параметры) или тематику работ.\n\nСтатья 775. Последствия невозможности достижения результатов научно-исследовательских работ\n\n[Документ 2, Источник: gpk_rf, кодекс: ГПК РФ]\nВ этом случае данные обстоятельства подлежат доказыванию на общих основаниях.\n\nСтатья 69. Свидетельские показания\n\n[Документ 3, Источник: apk_rf, кодекс: АПК РФ]\nются составленные или проверенные при осмотре документы, сделанные фотоснимки, аудио- и видеозаписи.\n\nСтатья 79. Осмотр и исследование вещественных доказательств, подвергающихся быстрой порче\n\n[Документ 4, Источник: gk_rf2, кодекс: ГК РФ]\n3) документов, являющихся основанием совершения операций;\n4) иных обстоятельств.\n\nСтатья 860.4. Предоставление сведений, составляющих банковскую тайну, бенефициару по договору номинального счета\n\n(в ред. Федерального закона от 26.07.2017 N 212-ФЗ)\n\n[Документ 5, Источник: apk_rf, кодекс: АПК РФ]\nспертами результаты исследований оформляются в соответствии с частью 2 статьи 84 настоящего Кодекса.\n\nСтатья 86. Заключение эксперта\n\n\nВопрос: stats\n\nИнструкции:\n- Отвечай только на основе предоставленного контекста\n- Обязательно укажи в ответе ссылку на источник: документ или кодекс (например: «согласно ГПК РФ», «по документу Исковое в суд по ГПК.txt», «источник: АПК РФ»). Без ссылки на источник ответ неполный\n- Если в контексте нет информации для ответа, скажи об этом\n- Будь точным и кратким\n- Отвечай на русском языке\n\nОтвет:'}], 'model': 'gpt-4o-mini', 'max_tokens': 500, 'temperature': 0.3}}
+2026-03-01 20:18:01 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-03-01 20:18:01 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 20:18:03 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Sun, 01 Mar 2026 16:18:03 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '645', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199210', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '237ms', 'x-request-id': 'req_c4215f5900434179a961bb7554abf398', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=a02xaxzXzcnAC_mC1vgHiYfbPB7hN_sZEJ_9EY6cpcM-1772381881.4344165-1.0.1.1-lC7NnzAr5x8w7Z7mW7wjPKCjCXpS7qNvVsbEUpHLMzD.3zzh2t.kw2gjisWkLhHQvbwLZ.2wtxSCgHl41Fe1nVBvpRnoGtBEVXdwufNAG0t2pLtJB5DBZ.1aGb6kOEw3; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 16:48:03 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d5979a6ffa3292c-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 20:18:03 | DEBUG    | openai._base_client | request_id: req_c4215f5900434179a961bb7554abf398
+2026-03-01 20:18:03 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=377 context_docs=5
+2026-03-01 20:18:03 | DEBUG    | __main__ | Ответ (первые 500 символов): В предоставленном контексте нет информации, касающейся статистики. Поэтому я не могу ответить на ваш вопрос.
+
+---
+Источники (по чанкам из векторной БД, на основе которых сформирован ответ):
+  1. документ: gk_rf2, кодекс: ГК РФ
+  2. документ: gpk_rf, кодекс: ГПК РФ
+  3. документ: apk_rf, кодекс: АПК РФ
+  4. документ: gk_rf2, кодекс: ГК РФ
+  5. документ: apk_rf, кодекс: АПК РФ
+2026-03-01 20:18:03 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=489
+2026-03-01 21:11:50 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:11:50 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:11:51 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:11:51 | INFO     | __main__ | Обработчики зарегистрированы: /start, текст сообщений
+2026-03-01 21:11:51 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:13:04 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:13:04 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:13:05 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:13:05 | INFO     | __main__ | Обработчики зарегистрированы: /start, текст сообщений
+2026-03-01 21:13:05 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:14:36 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:14:36 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:14:36 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:14:37 | INFO     | __main__ | Обработчики зарегистрированы: /start, текст сообщений
+2026-03-01 21:14:37 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:15:17 | INFO     | __main__ | Команда /start | user_id=202947918 username=murs51Luma chat_id=202947918
+2026-03-01 21:15:18 | DEBUG    | __main__ | Ответ на /start отправлен
+2026-03-01 21:15:22 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='Форма и реквизиты претензии.'
+2026-03-01 21:15:22 | DEBUG    | __main__ | Фильтр по вопросу: {'code': 'претензия'}
+2026-03-01 21:15:22 | INFO     | __main__ | Инициализация RAG pipeline...
+2026-03-01 21:15:29 | INFO     | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-03-01 21:15:29 | DEBUG    | chromadb.config | Starting component System
+2026-03-01 21:15:29 | DEBUG    | chromadb.config | Starting component Posthog
+2026-03-01 21:15:30 | INFO     | __main__ | RAG pipeline инициализирован
+2026-03-01 21:15:30 | INFO     | __main__ | Запрос в RAG: question='Форма и реквизиты претензии.'
+2026-03-01 21:15:30 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): us.i.posthog.com:443
+2026-03-01 21:15:31 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 21:15:32 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'idempotency_key': 'stainless-python-retry-f871fc2f-a89b-43ea-95ec-43ad0e9a1932', 'post_parser': <function Embeddings.create.<locals>.parser at 0x000002051E58BAC0>, 'content': None, 'json_data': {'input': 'Форма и реквизиты претензии.', 'model': 'text-embedding-3-small', 'encoding_format': 'base64'}}
+2026-03-01 21:15:32 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/embeddings
+2026-03-01 21:15:33 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/embeddings "200 OK" Headers({'date': 'Sun, 01 Mar 2026 17:15:33 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'access-control-expose-headers': 'X-Request-ID', 'openai-model': 'text-embedding-3-small', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '167', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'via': 'envoy-router-7c7b7d7fc6-j9rsw', 'x-ratelimit-limit-requests': '3000', 'x-ratelimit-limit-tokens': '1000000', 'x-ratelimit-remaining-requests': '2999', 'x-ratelimit-remaining-tokens': '999987', 'x-ratelimit-reset-requests': '20ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_bed396d2d8994f469806b20f8cb3f706', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=v3mH2PJ1zdpqT6pLucMy7kYww0jeHKBFvpl4mElFKoM-1772385332.7883928-1.0.1.1-QS8_8sbBC61xJjrkyzF1ZxaLVx3ifH2T.KZma_fjYaFhWDh08yZwfM0GQN59vjdOWJExOcTtz.hQ5r.AnWQ6sQIj_I_CiNPIuATUX1oJFfi35Q1yQueZzE2R0dxWauDq; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 17:45:33 GMT', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d59cde9eeb5292a-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 21:15:33 | DEBUG    | openai._base_client | request_id: req_bed396d2d8994f469806b20f8cb3f706
+2026-03-01 21:15:34 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-26cbc0d7-56c3-4e62-a45a-7b6d3000ddde', 'content': None, 'json_data': {'messages': [{'role': 'system', 'content': 'Ты - полезный AI ассистент, который отвечает на вопросы на основе предоставленного контекста.'}, {'role': 'user', 'content': 'Ты - полезный AI ассистент. Ответь на вопрос пользователя на основе предоставленного контекста.\n\nКонтекст (у каждого фрагмента указан источник — документ и/или кодекс):\n[Документ 1, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nСумма требований составляет: ______________________ руб.\n\nВ случае неудовлетворения требований в добровольном порядке\nв течение ____ календарных дней с момента получения\nнастоящей претензии я буду вынужден(а) обратиться в суд\nс требованием о взыскании задолженности, неустойки,\nпроцентов, судебных расходов и иных предусмотренных законом санкций.\n\nПриложения:\n1. Копия договора;\n2. Копии платежных документов;\n3. Иные доказательства.\n\nДата: "__" _________ 20__ г.\n\n[Документ 2, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nПРЕТЕНЗИЯ\n о добровольном урегулировании спора\n\nКому: _______________________________\n(Ф.И.О. / Наименование организации)\nАдрес: ______________________________\nИНН/ОГРН (если применимо): __________\n\nОт: _________________________________\n(Ф.И.О.)\nАдрес: ______________________________\nТелефон: ____________________________\nE-mail: _____________________________\n\nИсх. № _________\nот "__" _________ 20__ г.\n\n[Документ 3, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nВы обязаны: ____________________________________________.\n\nОднако обязательства исполнены ненадлежащим образом, а именно:\n_________________________________________________________\n_________________________________________________________.\n\nНа основании ст. 309, 310, 393, 395, 450, 781 ГК РФ\n(при необходимости указать иные нормы закона)\nТРЕБУЮ:\n\n[Документ 4, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nКопии платежных документов;\n3. Иные доказательства.\n\nДата: "__" _________ 20__ г.\n\nПодпись: _____________ /____________/\n\n[Документ 5, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\n(при необходимости указать иные нормы закона)\nТРЕБУЮ:\n\n1. _________________________________________________;\n2. _________________________________________________;\n3. Уплатить неустойку в размере ____________________;\n4. Возместить убытки в размере _____________________.\n\nСумма требований составляет: ______________________ руб.\n\n\nВопрос: Форма и реквизиты претензии.\n\nИнструкции:\n- Отвечай только на основе предоставленного контекста\n- Обязательно укажи в ответе ссылку на источник: документ или кодекс (например: «согласно ГПК РФ», «по документу Исковое в суд по ГПК.txt», «источник: АПК РФ»). Без ссылки на источник ответ неполный\n- Если в контексте нет информации для ответа, скажи об этом\n- Будь точным и кратким\n- Отвечай на русском языке\n\nОтвет:'}], 'model': 'gpt-4o-mini', 'max_tokens': 500, 'temperature': 0.3}}
+2026-03-01 21:15:34 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-03-01 21:15:34 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 21:15:38 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Sun, 01 Mar 2026 17:15:38 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '4248', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '198966', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '310ms', 'x-request-id': 'req_b0a7dc72921d4b2982a699076de4945e', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=3R3RzexnXFhTVXsrHyDWTd_z8qQuE42I4j6suo91U3c-1772385334.0870724-1.0.1.1-RhKW6pspc.lo3rhHba5PKWFAVuiA_jRIykLGBOfukRA.Sm4MmUHGKGGvIEPOZoUJ1zk3oh5h.C9KBZ4734KHfcATKAMsrUaGRGBX0mlGhtSixk70mxH4lQDLw3k9iUyW; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 17:45:38 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d59cdf208582938-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 21:15:38 | DEBUG    | openai._base_client | request_id: req_b0a7dc72921d4b2982a699076de4945e
+2026-03-01 21:15:38 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=998 context_docs=5
+2026-03-01 21:15:38 | DEBUG    | __main__ | Ответ (первые 500 символов): Форма и реквизиты претензии включают следующие элементы:
+
+1. Заголовок "ПРЕТЕНЗИЯ".
+2. Наименование адресата (Ф.И.О. или наименование организации) и его адрес.
+3. ИНН/ОГРН (если применимо).
+4. Данные отправителя (Ф.И.О., адрес, телефон, E-mail).
+5. Исходящий номер и дата.
+6. Описание обязательств, которые должны быть исполнены, и указание на ненадлежащее исполнение.
+7. Ссылка на нормы закона, на основании которых выдвигаются требования.
+8. Конкретные требования (например, уплата неустойки, возме
+2026-03-01 21:15:39 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=1142
+2026-03-01 21:18:01 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:18:01 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:18:01 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:18:01 | INFO     | __main__ | Обработчики зарегистрированы: /start, текст сообщений
+2026-03-01 21:18:01 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:19:15 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:19:15 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:19:16 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:19:16 | INFO     | __main__ | Обработчики зарегистрированы: /start, текст сообщений
+2026-03-01 21:19:16 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:23:49 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:23:49 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:23:50 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:23:51 | INFO     | __main__ | Обработчики зарегистрированы: /start, /help, /stats, /clearcache, /stop, текст сообщений
+2026-03-01 21:23:51 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:24:00 | INFO     | __main__ | Команда /start | user_id=202947918 username=murs51Luma chat_id=202947918
+2026-03-01 21:24:00 | DEBUG    | __main__ | Ответ на /start отправлен
+2026-03-01 21:25:06 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:25:06 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:25:07 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:25:07 | INFO     | __main__ | Обработчики зарегистрированы: /start, /help, /stats, /clearcache, /clear, /stop, текст сообщений
+2026-03-01 21:25:07 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:25:14 | INFO     | __main__ | Команда /start | user_id=202947918 username=murs51Luma chat_id=202947918
+2026-03-01 21:25:14 | DEBUG    | __main__ | Ответ на /start отправлен
+2026-03-01 21:25:17 | INFO     | __main__ | Инициализация RAG pipeline...
+2026-03-01 21:25:24 | INFO     | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-03-01 21:25:24 | DEBUG    | chromadb.config | Starting component System
+2026-03-01 21:25:24 | DEBUG    | chromadb.config | Starting component Posthog
+2026-03-01 21:25:24 | INFO     | __main__ | RAG pipeline инициализирован
+2026-03-01 21:25:24 | INFO     | __main__ | Кеш очищен по команде /clearcache
+2026-03-01 21:25:25 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): us.i.posthog.com:443
+2026-03-01 21:25:25 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 21:25:43 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='Форма и реквизиты претензии.'
+2026-03-01 21:25:44 | DEBUG    | __main__ | Фильтр по вопросу: {'code': 'претензия'}
+2026-03-01 21:25:44 | INFO     | __main__ | Запрос в RAG: question='Форма и реквизиты претензии.'
+2026-03-01 21:25:46 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'idempotency_key': 'stainless-python-retry-c2d77c0b-633f-406b-b2fb-3f784fe7b494', 'post_parser': <function Embeddings.create.<locals>.parser at 0x000002933DC5C820>, 'content': None, 'json_data': {'input': 'Форма и реквизиты претензии.', 'model': 'text-embedding-3-small', 'encoding_format': 'base64'}}
+2026-03-01 21:25:46 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/embeddings
+2026-03-01 21:25:47 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/embeddings "200 OK" Headers({'date': 'Sun, 01 Mar 2026 17:25:47 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'access-control-expose-headers': 'X-Request-ID', 'openai-model': 'text-embedding-3-small', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '534', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'via': 'envoy-router-7c7b7d7fc6-2t9m5', 'x-ratelimit-limit-requests': '3000', 'x-ratelimit-limit-tokens': '1000000', 'x-ratelimit-remaining-requests': '2999', 'x-ratelimit-remaining-tokens': '999987', 'x-ratelimit-reset-requests': '20ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_4ce3c39ad6574203b1e3f752c02a5528', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=CIUwKbisbAk345HovveA1B9pmBC0.nucvGQfaW4X0bQ-1772385946.2148006-1.0.1.1-OWPi3uyAUUv8RKvGAV9K41z3M.5Z4aAMEunAtOUTG3YhW41FvVHGT0GjGLInRI7zJH_BOkdLH2QUoIH7j2tEbx68jH.IdDdTqAhQ28UZIbcN6kIcPQM.Nr2Gn5.KMrQy; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 17:55:47 GMT', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d59dce3d9642922-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 21:25:47 | DEBUG    | openai._base_client | request_id: req_4ce3c39ad6574203b1e3f752c02a5528
+2026-03-01 21:25:47 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-2f16b6c6-6b61-49fe-96a5-f9f1c748b341', 'content': None, 'json_data': {'messages': [{'role': 'system', 'content': 'Ты - полезный AI ассистент, который отвечает на вопросы на основе предоставленного контекста.'}, {'role': 'user', 'content': 'Ты - полезный AI ассистент. Ответь на вопрос пользователя на основе предоставленного контекста.\n\nКонтекст (у каждого фрагмента указан источник — документ и/или кодекс):\n[Документ 1, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nСумма требований составляет: ______________________ руб.\n\nВ случае неудовлетворения требований в добровольном порядке\nв течение ____ календарных дней с момента получения\nнастоящей претензии я буду вынужден(а) обратиться в суд\nс требованием о взыскании задолженности, неустойки,\nпроцентов, судебных расходов и иных предусмотренных законом санкций.\n\nПриложения:\n1. Копия договора;\n2. Копии платежных документов;\n3. Иные доказательства.\n\nДата: "__" _________ 20__ г.\n\n[Документ 2, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nПРЕТЕНЗИЯ\n о добровольном урегулировании спора\n\nКому: _______________________________\n(Ф.И.О. / Наименование организации)\nАдрес: ______________________________\nИНН/ОГРН (если применимо): __________\n\nОт: _________________________________\n(Ф.И.О.)\nАдрес: ______________________________\nТелефон: ____________________________\nE-mail: _____________________________\n\nИсх. № _________\nот "__" _________ 20__ г.\n\n[Документ 3, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nВы обязаны: ____________________________________________.\n\nОднако обязательства исполнены ненадлежащим образом, а именно:\n_________________________________________________________\n_________________________________________________________.\n\nНа основании ст. 309, 310, 393, 395, 450, 781 ГК РФ\n(при необходимости указать иные нормы закона)\nТРЕБУЮ:\n\n[Документ 4, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\nКопии платежных документов;\n3. Иные доказательства.\n\nДата: "__" _________ 20__ г.\n\nПодпись: _____________ /____________/\n\n[Документ 5, Источник: ПРЕТЕНЗИЯ, кодекс: претензия]\n(при необходимости указать иные нормы закона)\nТРЕБУЮ:\n\n1. _________________________________________________;\n2. _________________________________________________;\n3. Уплатить неустойку в размере ____________________;\n4. Возместить убытки в размере _____________________.\n\nСумма требований составляет: ______________________ руб.\n\n\nВопрос: Форма и реквизиты претензии.\n\nИнструкции:\n- Отвечай только на основе предоставленного контекста\n- Обязательно укажи в ответе ссылку на источник: документ или кодекс (например: «согласно ГПК РФ», «по документу ПРЕТЕНЗИЯ», «источник: претензия»). Без ссылки на источник ответ неполный\n- Если вопрос касается формы документа, реквизитов, шаблона, перечня пунктов или структуры (например: «форма претензии», «реквизиты», «что должно быть в документе») — приводи текст из контекста дословно, как в источнике. Не переписывай список своими словами и не сокращай пункты: воспроизводи форму/структуру из документа без изменений\n- Если в контексте нет информации для ответа, скажи об этом\n- Будь точным; для форм и реквизитов — дословно по документу\n- Отвечай на русском языке\n\nОтвет:'}], 'model': 'gpt-4o-mini', 'max_tokens': 1500, 'temperature': 0.3}}
+2026-03-01 21:25:47 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-03-01 21:25:47 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 21:25:52 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Sun, 01 Mar 2026 17:25:52 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '4860', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '198799', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '360ms', 'x-request-id': 'req_b4e3a614758745f6acdb621a0462d4bc', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=VPlZ1ird_bn4Wu_l8DrOGAU_qcj6uT_Z3CVwJRtTbUU-1772385947.178397-1.0.1.1-S6Ivjo8AovYocfpFuG0WnqQSQ2qCCwD6lENzWt9QiM233204hqvug6ieYih.17.xPerO04kkhmrB3SY2xDnHfT5c9ZK4Fuxxf8bO3tMmAUKKIc8A.YWTtHk4Y6W6I1ta; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 17:55:52 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d59dce9dd052922-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 21:25:52 | DEBUG    | openai._base_client | request_id: req_b4e3a614758745f6acdb621a0462d4bc
+2026-03-01 21:25:52 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=1501 context_docs=5
+2026-03-01 21:25:52 | DEBUG    | __main__ | Ответ (первые 500 символов): Форма и реквизиты претензии включают следующие элементы:
+
+1. Кому: _______________________________ (Ф.И.О. / Наименование организации)
+2. Адрес: ______________________________
+3. ИНН/ОГРН (если применимо): __________
+4. От: _________________________________ (Ф.И.О.)
+5. Адрес: ______________________________
+6. Телефон: ____________________________
+7. E-mail: _____________________________
+8. Исх. № _________ от "__" _________ 20__ г.
+9. Вы обязаны: ____________________________________________.
+10.
+2026-03-01 21:25:53 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=1645
+2026-03-01 21:29:47 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:29:47 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:29:48 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:29:48 | INFO     | __main__ | Обработчики зарегистрированы: /start, /help, /stats, /clearcache, /clear, /stop, текст сообщений
+2026-03-01 21:29:48 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:29:53 | INFO     | __main__ | Инициализация RAG pipeline...
+2026-03-01 21:30:01 | INFO     | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-03-01 21:30:01 | DEBUG    | chromadb.config | Starting component System
+2026-03-01 21:30:01 | DEBUG    | chromadb.config | Starting component Posthog
+2026-03-01 21:30:02 | INFO     | __main__ | RAG pipeline инициализирован
+2026-03-01 21:30:02 | INFO     | __main__ | Кеш очищен по команде /clearcache
+2026-03-01 21:30:02 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): us.i.posthog.com:443
+2026-03-01 21:30:03 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 21:30:19 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='Форма претензии'
+2026-03-01 21:30:20 | DEBUG    | __main__ | Фильтр по вопросу: {'code': 'претензия'}
+2026-03-01 21:30:20 | INFO     | __main__ | Запрос в RAG: question='Форма претензии'
+2026-03-01 21:30:20 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=1889 context_docs=1
+2026-03-01 21:30:20 | DEBUG    | __main__ | Ответ (первые 500 символов): Форма и реквизиты претензии (источник: ПРЕТЕНЗИЯ):
+
+ПРЕТЕНЗИЯ
+                 о добровольном урегулировании спора
+
+Кому: _______________________________
+(Ф.И.О. / Наименование организации)
+Адрес: ______________________________
+ИНН/ОГРН (если применимо): __________
+
+От: _________________________________
+(Ф.И.О.)
+Адрес: ______________________________
+Телефон: ____________________________
+E-mail: _____________________________
+
+Исх. № _________
+от "__" _________ 20__ г.
+
+Между мной и ______________
+2026-03-01 21:30:20 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=1929
+2026-03-01 21:30:53 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='форма Искового заявления'
+2026-03-01 21:30:53 | DEBUG    | __main__ | Фильтр по вопросу: None
+2026-03-01 21:30:53 | INFO     | __main__ | Запрос в RAG: question='форма Искового заявления'
+2026-03-01 21:30:53 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=4717 context_docs=2
+2026-03-01 21:30:53 | DEBUG    | __main__ | Ответ (первые 500 символов): Исковое заявление (ГПК РФ), источник: Исковое в суд по ГПК
+
+В _____________________________ суд
+(указать наименование суда)
+
+Истец: _______________________________
+Адрес: _______________________________
+Телефон: _____________________________
+E-mail: ______________________________
+
+Ответчик: ____________________________
+Адрес: _______________________________
+
+Цена иска: ___________________________
+Госпошлина: _________________________
+
+                   ИСКОВОЕ ЗАЯВЛЕНИЕ
+        о взыскании задо
+2026-03-01 21:30:54 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=4000
+2026-03-01 21:32:48 | INFO     | __main__ | Запуск бота (bot_telegram.py) | log_file=C:\Python\PythonProject\GigaChat\Promtinginiring\Лекции\Промтинжениринг\PEr08. Практика ассистент по документации\RAG-ассистент по регламентам и правовым документам\bot_telegram.log
+2026-03-01 21:32:48 | INFO     | __main__ | Токен бота загружен (длина=46)
+2026-03-01 21:32:49 | DEBUG    | __main__ | Импорт telegram и telegram.ext выполнен
+2026-03-01 21:32:49 | INFO     | __main__ | Обработчики зарегистрированы: /start, /help, /stats, /clearcache, /clear, /stop, текст сообщений
+2026-03-01 21:32:49 | INFO     | __main__ | Polling запущен. Остановка: Ctrl+C
+2026-03-01 21:32:54 | INFO     | __main__ | Инициализация RAG pipeline...
+2026-03-01 21:33:01 | INFO     | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-03-01 21:33:01 | DEBUG    | chromadb.config | Starting component System
+2026-03-01 21:33:01 | DEBUG    | chromadb.config | Starting component Posthog
+2026-03-01 21:33:01 | INFO     | __main__ | RAG pipeline инициализирован
+2026-03-01 21:33:01 | INFO     | __main__ | Кеш очищен по команде /clearcache
+2026-03-01 21:33:02 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): us.i.posthog.com:443
+2026-03-01 21:33:02 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 21:33:08 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='Форма иска'
+2026-03-01 21:33:09 | DEBUG    | __main__ | Фильтр по вопросу: None
+2026-03-01 21:33:09 | INFO     | __main__ | Запрос в RAG: question='Форма иска'
+2026-03-01 21:33:12 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'idempotency_key': 'stainless-python-retry-11750e02-100c-4d10-aac8-a8ef35e5a78c', 'post_parser': <function Embeddings.create.<locals>.parser at 0x000002930C2B81F0>, 'content': None, 'json_data': {'input': 'Форма иска', 'model': 'text-embedding-3-small', 'encoding_format': 'base64'}}
+2026-03-01 21:33:12 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/embeddings
+2026-03-01 21:33:13 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/embeddings "200 OK" Headers({'date': 'Sun, 01 Mar 2026 17:33:13 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'access-control-expose-headers': 'X-Request-ID', 'openai-model': 'text-embedding-3-small', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '52', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'via': 'envoy-router-569f44f5d8-fxrn7', 'x-ratelimit-limit-requests': '3000', 'x-ratelimit-limit-tokens': '1000000', 'x-ratelimit-remaining-requests': '2999', 'x-ratelimit-remaining-tokens': '999996', 'x-ratelimit-reset-requests': '20ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_5f920fc052154dd6b1293b649876274d', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=m1LASeX5WnuB7xs2i8iBSTaDvkFNIERXaRMnf1WafNE-1772386392.486493-1.0.1.1-jG1yA1EdHfou2NRun8xrwQHoIbJSxdcxeTG4qe_Mf7rhVsD6wJWFzfbpXNCvrnMKmzMerXCnJsE7dQgWOlU.Rxop9KUP4gh355kIOeV159phrpPaAvkscSaf0cNQxDGD; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 18:03:13 GMT', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d59e7c909a92929-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 21:33:13 | DEBUG    | openai._base_client | request_id: req_5f920fc052154dd6b1293b649876274d
+2026-03-01 21:33:13 | DEBUG    | openai._base_client | Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-d139930b-f493-4599-a6d3-6ce99f6dfe68', 'content': None, 'json_data': {'messages': [{'role': 'system', 'content': 'Ты - полезный AI ассистент, который отвечает на вопросы на основе предоставленного контекста.'}, {'role': 'user', 'content': 'Ты - полезный AI ассистент. Ответь на вопрос пользователя на основе предоставленного контекста.\n\nКонтекст (у каждого фрагмента указан источник — документ и/или кодекс):\n[Документ 1, Источник: gpk_rf, кодекс: ГПК РФ]\nПРЕДЪЯВЛЕНИЕ ИСКА\n\nСтатья 131. Форма и содержание искового заявления\n\n1. Исковое заявление подается в суд на бумажном носителе или в электронном виде, в том числе в форме электронного документа.\n(часть 1 в ред. Федерального закона от 30.12.2021 N 440-ФЗ)\n2. В исковом заявлении должны быть указаны:\n1) наименование суда, в который подается заявление;\n2) сведения об истце: для гражданина - фамилия, имя, отчество (при наличии), дата и место рождения, место жительства или место пребывания, один из идентификаторов (страховой номер индивидуального лицевого счета, идентификационный номер налогоплательщика, серия и номер документа, удостоверяющего личность, серия и номер водительского удостоверения); для организации - наименование, адрес, идентификационный номер налогоплательщика; если заявление подается представителем, - также фамилия, имя, отчество (при наличии) или наименование представителя, адрес для направления судебных повесток и иных судебных извещений, один из идентификаторов представителя (для гражданина);\n(п. 2 в ред. Федерального закона от 21.12.2021 N 417-ФЗ)\n3) сведения об ответчике: для гражданина - фамилия, имя, отчество (при наличии), дата и место рождения, место жительства или место пребывания, место работы (если известно), один из идентификаторов (страховой номер индивидуального лицевого счета, идентификационный номер налогоплательщика, серия и номер документа, удостоверяющего личность, основной государственный регистрационный номер индивидуального предпринимателя, серия и номер водительского удостоверения); для организации - наименование, адрес, идентификационный номер налогоплательщика и основной государственный регистрационный номер. В случае, если истцу неизвестны дата и место рождения ответчика, один из идентификаторов ответчика, об этом указывается в исковом заявлении и такая информация по запросу суда предоставляется органами Фонда пенсионного и социального страхования Российской Федерации, и (или) налоговыми органами, и (или) органами внутренних дел. В случае, если истцу по иску о взыскании задолженности по оплате помещения, машино-места в многоквартирном доме, коммунальных услуг, взносов на капитальный ремонт общего имущества собственников помещений в многоквартирном доме, энергетических ресурсов неизвестны не только вышеуказанные сведения об ответчике, но и фамилия, имя, отчество (при наличии) ответчика, соответствующий истец в исковом заявлении вправе указать об этом и такая информация вместе с вышеуказанными сведениями об ответчике, неизвестными истцу, предоставляется суду указанными в настоящем пункте органами, а также организацией, уполномоченной на предоставление сведений из Единого государственного реестра недвижимости, в порядке, установленном федеральным законом. В указанных случаях срок принятия искового заявления к производству суда, предусмотренный частью первой статьи 133 настоящего Кодекса, исчисляется со дня получения судом такой информации;\n(в ред. Федеральных законов от 21.12.2021 N 417-ФЗ, от 28.12.2022 N 569-ФЗ, от 18.03.2023 N 80-ФЗ)\n4) в чем заключается нарушение либо угроза нарушения прав, свобод или законных интересов истца и его требования;\n5) обстоятельства, на которых истец основывает свои требования, и доказательства, подтверждающие эти обстоятельства;\n6) цена иска, если он подлежит оценке, а также расчет взыскиваемых или оспариваемых денежных сумм;\n7) сведения о соблюдении досудебного порядка обращения к ответчику, если это установлено федеральным законом;\n(в ред. Федерального закона от 28.11.2018 N 451-ФЗ)\n7.1) сведения о предпринятых стороной (сторонами) действиях, направленных на примирение, если такие действия предпринимались;\n(п. 7.1 введен Федеральным законом от 26.07.2019 N 197-ФЗ)\n8) перечень прилагаемых к заявлению документов.\nВ заявлении могут быть указаны номера телефонов, факсов, адреса электронной почты истца, его представителя, ответчика, иные сведения, имеющие значение для рассмотрения и разрешения дела, а также изложены ходатайства истца.\n3. В исковом заявлении, предъявляемом прокурором в защиту интересов Российской Федерации, субъектов Российской Федерации, муниципальных образований или в защиту прав, свобод и законных интересов неопределенного круга лиц, должно быть указано, в чем конкретно заключаются их интересы, какое право нарушено, а также должна содержаться ссылка на закон или иной нормативный правовой акт, предусматривающие способы защиты этих интересов.\nВ случае обращения прокурора в защиту законных интересов гражданина в заявлении должно содержаться обоснование невозможности предъявления иска самим гражданином либо указание на обращение гражданина к прокурору.\n(в ред. Федерального закона от 05.04.2009 N 43-ФЗ)\n4. Исковое заявление подписывается истцом или его представителем при наличии у него полномочий на подписание заявления и предъявление его в суд.\nИсковое заявление, подаваемое в электронном виде, содержащее ходатайство об обеспечении иска, должно быть подписано усиленной квалифицированной электронной подписью.\n(в ред. Федерального закона от 30.12.2021 N 440-ФЗ)\n\n[Документ 2, Источник: apk_rf, кодекс: АПК РФ]\nЦена иска\n\n1. Цена иска определяется:\n1) по искам о взыскании денежных средств, исходя из взыскиваемой суммы;\n2) по искам о признании не подлежащим исполнению исполнительного или иного документа, по которому взыскание производится в бесспорном (безакцептном) порядке, исходя из оспариваемой денежной суммы;\n3) по искам об истребовании имущества, исходя из стоимости истребуемого имущества;\n4) по искам об истребовании земельного участка, исходя из стоимости земельного участка.\nВ цену иска включаются также указанные в исковом заявлении суммы неустойки (штраф, пени) и проценты.\nЦена иска, состоящего из нескольких самостоятельных требований, определяется суммой всех требований.\n2. По исковым заявлениям о признании права, в том числе права собственности, права пользования, права владения, права распоряжения, государственная пошлина уплачивается в размерах, установленных для исковых заявлений неимущественного характера.\n3. Цена иска указывается заявителем.\nВ случае неправильного указания заявителем цены иска она определяется арбитражным судом.\n\n[Документ 3, Источник: gpk_rf, кодекс: ГПК РФ]\n(часть 3 введена Федеральным законом от 08.03.2015 N 41-ФЗ)\n\nПодраздел II. ИСКОВОЕ ПРОИЗВОДСТВО\n\nГлава 12. ПРЕДЪЯВЛЕНИЕ ИСКА\n\nСтатья 131. Форма и содержание искового заявления\n\n[Документ 4, Источник: apk_rf, кодекс: АПК РФ]\nПРЕДЪЯВЛЕНИЕ ИСКА\n\nСтатья 125. Форма и содержание искового заявления\n\n1. Исковое заявление подается в арбитражный суд на бумажном носителе или в электронном виде, в том числе в форме электронного документа. Исковое заявление подписывается истцом или его представителем.\nИсковое заявление, подаваемое в электронном виде, содержащее ходатайство об обеспечении иска, должно быть подписано усиленной квалифицированной электронной подписью.\n(часть 1 в ред. Федерального закона от 30.12.2021 N 440-ФЗ)\n2. В исковом заявлении должны быть указаны:\n1) наименование арбитражного суда, в который подается исковое заявление;\n2) сведения об истце: для гражданина - фамилия, имя, отчество (при наличии), дата и место рождения, место жительства или место пребывания, место работы или дата и место государственной регистрации в качестве индивидуального предпринимателя и один из идентификаторов (страховой номер индивидуального лицевого счета, идентификационный номер налогоплательщика, серия и номер документа, удостоверяющего личность, серия и номер водительского удостоверения), номера телефонов, факсов, адреса электронной почты; для организации - наименование, адрес, идентификационный номер налогоплательщика, номера телефонов, факсов, адреса электронной почты;\n(п. 2 в ред. Федерального закона от 21.12.2021 N 417-ФЗ)\n3) сведения об ответчике: для гражданина - фамилия, имя, отчество (при наличии), дата и место рождения, место жительства или место пребывания, место работы (если известно) и один из идентификаторов (страховой номер индивидуального лицевого счета, идентификационный номер налогоплательщика, серия и номер документа, удостоверяющего личность, основной государственный регистрационный номер индивидуального предпринимателя, серия и номер водительского удостоверения); для организации - наименование, адрес, идентификационный номер налогоплательщика и основной государственный регистрационный номер. В случае, если гражданину неизвестны дата и место рождения ответчика, один из его идентификаторов, об этом указывается в исковом заявлении и такая информация по запросу арбитражного суда предоставляется органами Фонда пенсионного и социального страхования Российской Федерации, и (или) налоговыми органами, и (или) органами внутренних дел. В этом случае срок принятия искового заявления к производству арбитражного суда, предусмотренный частью 1 статьи 127 настоящего Кодекса, исчисляется со дня получения арбитражным судом такой информации;\n(в ред. Федеральных законов от 21.12.2021 N 417-ФЗ, от 28.12.2022 N 569-ФЗ)\n4) требования истца к ответчику со ссылкой на законы и иные нормативные правовые акты, а при предъявлении иска к нескольким ответчикам - требования к каждому из них;\n5) обстоятельства, на которых основаны исковые требования, и подтверждающие эти обстоятельства доказательства;\n6) цена иска, если иск подлежит оценке;\n7) расчет взыскиваемой или оспариваемой денежной суммы;\n8) сведения о соблюдении истцом претензионного или иного досудебного порядка;\n(в ред. Федерального закона от 02.03.2016 N 47-ФЗ)\n8.1) сведения о предпринятых стороной (сторонами) действиях, направленных на примирение, если такие действия предпринимались;\n(п. 8.1 введен Федеральным законом от 26.07.2019 N 197-ФЗ)\n9) сведения о мерах, принятых арбитражным судом по обеспечению имущественных интересов до предъявления иска;\n10) перечень прилагаемых документов.\nВ заявлении должны быть указаны и иные сведения, если они необходимы для правильного и своевременного рассмотрения дела, могут содержаться ходатайства, в том числе ходатайства об истребовании доказательств от ответчика или других лиц.\n(в ред. Федерального закона от 27.07.2010 N 228-ФЗ)\n3. Истец обязан направить другим лицам, участвующим в деле, копии искового заявления и прилагаемых к нему документов, которые у них отсутствуют, заказным письмом с уведомлением о вручении или в электронном виде посредством единого портала государственных и муниципальных услуг либо системы электронного документооборота участника арбитражного процесса с использованием единой системы межведомственного электронного взаимодействия.\n(в ред. Федерального закона от 30.12.2021 N 440-ФЗ)\n\n[Документ 5, Источник: gpk_rf, кодекс: ГПК РФ]\nЦена иска\n\n1. Цена иска определяется:\n1) по искам о взыскании денежных средств, исходя из взыскиваемой денежной суммы;\n2) по искам об истребовании имущества, исходя из стоимости истребуемого имущества;\n3) по искам о взыскании алиментов, исходя из совокупности платежей за год;\n4) по искам о срочных платежах и выдачах, исходя из совокупности всех платежей и выдач, но не более чем за три года;\n5) по искам о бессрочных или пожизненных платежах и выдачах, исходя из совокупности платежей и выдач за три года;\n6) по искам об уменьшении или увеличении платежей и выдач, исходя из суммы, на которую уменьшаются или увеличиваются платежи и выдачи, но не более чем за год;\n7) по искам о прекращении платежей и выдач, исходя из совокупности оставшихся платежей и выдач, но не более чем за год;\n8) по искам о досрочном расторжении договора имущественного найма, исходя из совокупности платежей за пользование имуществом в течение оставшегося срока действия договора, но не более чем за три года;\n9) по искам о праве собственности на объект недвижимого имущества, принадлежащий гражданину на праве собственности, исходя из стоимости объекта, но не ниже его инвентаризационной оценки или при отсутствии ее - не ниже оценки стоимости объекта по договору страхования, на объект недвижимого имущества, принадлежащего организации, - не ниже балансовой оценки объекта;\n10) по искам, состоящим из нескольких самостоятельных требований, исходя из каждого требования в отдельности.\n2. Цена иска указывается истцом. В случае явного несоответствия указанной цены действительной стоимости истребуемого имущества цену иска определяет судья при принятии искового заявления.\n\n\nВопрос: Форма иска\n\nИнструкции:\n- Отвечай только на основе предоставленного контекста\n- Обязательно укажи в ответе ссылку на источник: документ или кодекс (например: «согласно ГПК РФ», «по документу ПРЕТЕНЗИЯ», «источник: претензия»). Без ссылки на источник ответ неполный\n- Если вопрос касается формы документа, реквизитов, шаблона, перечня пунктов или структуры (например: «форма претензии», «реквизиты», «что должно быть в документе») — приводи текст из контекста дословно, как в источнике. Не переписывай список своими словами и не сокращай пункты: воспроизводи форму/структуру из документа без изменений\n- Если в контексте нет информации для ответа, скажи об этом\n- Будь точным; для форм и реквизитов — дословно по документу\n- Отвечай на русском языке\n\nОтвет:'}], 'model': 'gpt-4o-mini', 'max_tokens': 1500, 'temperature': 0.1}}
+2026-03-01 21:33:13 | DEBUG    | openai._base_client | Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2026-03-01 21:33:14 | DEBUG    | urllib3.connectionpool | https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2026-03-01 21:33:29 | DEBUG    | openai._base_client | HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Sun, 01 Mar 2026 17:33:29 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'ai-shevoa', 'openai-processing-ms': '15074', 'openai-project': 'proj_In4lqOY6Ev9FTlqLVQPMvo6x', 'openai-version': '2020-10-01', 'server': 'cloudflare', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '194002', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '1.799s', 'x-request-id': 'req_8b5b9a3cfe7d47af984398cddf2d8ada', 'x-openai-proxy-wasm': 'v0.1', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=SJ8z1b3kiaKUYM_Qyyak_wC.l8ImhKbXBd.83KA7O7U-1772386393.676238-1.0.1.1-obJzB21HYsD9vQG3kiPHX1CGrn.c0keuC7Sp6OmO8PJlkCradkln9RI18cbL6oCAktJK8O0DPfdbS9t4RaL3A75ehGm5dVaTsboVm7sb6clGed8RDKKKaFEovuZRqEBh; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 18:03:29 GMT', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'content-encoding': 'gzip', 'cf-ray': '9d59e7d07f0e292a-EVN', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-03-01 21:33:29 | DEBUG    | openai._base_client | request_id: req_8b5b9a3cfe7d47af984398cddf2d8ada
+2026-03-01 21:33:29 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=3639 context_docs=5
+2026-03-01 21:33:29 | DEBUG    | __main__ | Ответ (первые 500 символов): Исковое заявление подается в суд на бумажном носителе или в электронном виде, в том числе в форме электронного документа. В исковом заявлении должны быть указаны:
+
+1) наименование суда, в который подается заявление;
+2) сведения об истце: для гражданина - фамилия, имя, отчество (при наличии), дата и место рождения, место жительства или место пребывания, один из идентификаторов (страховой номер индивидуального лицевого счета, идентификационный номер налогоплательщика, серия и номер документа, удос
+2026-03-01 21:33:29 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=3753 parts=1
+2026-03-01 21:33:43 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='Форма искового заявления'
+2026-03-01 21:33:44 | DEBUG    | __main__ | Фильтр по вопросу: None
+2026-03-01 21:33:44 | INFO     | __main__ | Запрос в RAG: question='Форма искового заявления'
+2026-03-01 21:33:44 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=4717 context_docs=2
+2026-03-01 21:33:44 | DEBUG    | __main__ | Ответ (первые 500 символов): Исковое заявление (ГПК РФ), источник: Исковое в суд по ГПК
+
+В _____________________________ суд
+(указать наименование суда)
+
+Истец: _______________________________
+Адрес: _______________________________
+Телефон: _____________________________
+E-mail: ______________________________
+
+Ответчик: ____________________________
+Адрес: _______________________________
+
+Цена иска: ___________________________
+Госпошлина: _________________________
+
+                   ИСКОВОЕ ЗАЯВЛЕНИЕ
+        о взыскании задо
+2026-03-01 21:33:44 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=4806 parts=2
+2026-03-01 21:34:19 | INFO     | __main__ | Входящее сообщение | user_id=202947918 username=murs51Luma chat_id=202947918 text='Форма претензии'
+2026-03-01 21:34:19 | DEBUG    | __main__ | Фильтр по вопросу: {'code': 'претензия'}
+2026-03-01 21:34:19 | INFO     | __main__ | Запрос в RAG: question='Форма претензии'
+2026-03-01 21:34:19 | INFO     | __main__ | RAG ответ получен | from_cache=False answer_len=1889 context_docs=1
+2026-03-01 21:34:19 | DEBUG    | __main__ | Ответ (первые 500 символов): Форма и реквизиты претензии (источник: ПРЕТЕНЗИЯ):
+
+ПРЕТЕНЗИЯ
+                 о добровольном урегулировании спора
+
+Кому: _______________________________
+(Ф.И.О. / Наименование организации)
+Адрес: ______________________________
+ИНН/ОГРН (если применимо): __________
+
+От: _________________________________
+(Ф.И.О.)
+Адрес: ______________________________
+Телефон: ____________________________
+E-mail: _____________________________
+
+Исх. № _________
+от "__" _________ 20__ г.
+
+Между мной и ______________
+2026-03-01 21:34:19 | INFO     | __main__ | Ответ отправлен в чат chat_id=202947918 reply_len=1929 parts=1
