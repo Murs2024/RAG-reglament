@@ -34,3 +34,8 @@ cache.json
 .DS_Store
 Thumbs.db
 
+# Локальные файлы (не публиковать в репозитории)
+ИНСТРУКЦИЯ_РАЗМЕЩЕНИЕ_НА_GITHUB.md
+GITHUB_PUBLISH.md
+RAG.png
+
