@@ -442,9 +442,9 @@ if __name__ == "__main__":
     
     vector_store = VectorStore(collection_name="test_collection")
     
-    # Загрузка документов
-    if os.path.exists("data/docs.txt"):
-        vector_store.load_documents("data/docs.txt")
+    # Загрузка документов из папки data/
+    if os.path.isdir("data") and list(Path("data").glob("*.txt")):
+        vector_store.load_documents_from_folder("data")
     
     # Поиск
     results = vector_store.search("Что такое машинное обучение?", top_k=3)
