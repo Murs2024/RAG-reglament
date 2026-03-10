@@ -165,7 +165,6 @@ def main():
             collection_name="api_rag_collection",
             cache_db_path="api_rag_cache.db",
             data_dir="data",
-            data_file="data/docs.txt",
             model="gpt-4o-mini"
         )
         print("\n✅ Система готова к работе!\n")
