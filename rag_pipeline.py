@@ -19,7 +19,6 @@ class RAGPipeline:
                  collection_name: str = "rag_collection",
                  cache_db_path: str = "rag_cache.db",
                  data_dir: str = "data",
-                 data_file: str = "data/docs.txt",
                  model: str = "gpt-4o-mini",
                  top_k: Optional[int] = None):
         """
@@ -28,8 +27,7 @@ class RAGPipeline:
         Args:
             collection_name: имя коллекции в ChromaDB
             cache_db_path: путь к базе данных кеша
-            data_dir: папка с .txt документами (используется приоритетно)
-            data_file: путь к одному файлу (если в data_dir нет .txt)
+            data_dir: папка с .txt документами
             model: модель OpenAI для генерации ответов
             top_k: сколько чанков передавать в LLM (из векторной БД берутся самые релевантные).
                    Не зависит от размера БД: всегда берём топ-k по сходству. По умолчанию из TOP_K в .env или 5.
@@ -54,8 +52,9 @@ class RAGPipeline:
                 print(f"Загрузка документов из папки {data_dir}...")
                 self.vector_store.load_documents_from_folder(data_dir)
             else:
-                print(f"Загрузка документов из {data_file}...")
-                self.vector_store.load_documents(data_file)
+                raise FileNotFoundError(
+                    f"В папке {data_dir} не найдено .txt файлов для индексации"
+                )
         
         print("Инициализация кеша...")
         self.cache = RAGCache(db_path=cache_db_path)
@@ -252,7 +251,7 @@ class RAGPipeline:
         Args:
             user_query: запрос пользователя
             use_cache: использовать ли кеш
-            metadata_filter: фильтр поиска, напр. {"code": "ГПК РФ"} или {"source": "claim_pretenziya"}
+            metadata_filter: фильтр поиска, напр. {"code": "ГПК РФ"} или {"source": "ПРЕТЕНЗИЯ"}
             
         Returns:
             словарь с ответом и метаданными
