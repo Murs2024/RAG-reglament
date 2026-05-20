@@ -21,11 +21,6 @@ FILE_TO_CODE = {
     "gk_rf3": "ГК РФ",
     # Претензия
     "ПРЕТЕНЗИЯ": "претензия",
-    # Старые имена (если вернёте шаблоны)
-    "letter_template": "письмо",
-    "claim_pretenziya": "претензия",
-    "claim_gpk": "ГПК РФ",
-    "claim_apk": "АПК РФ",
 }
 import os
 from openai import OpenAI
@@ -256,55 +251,6 @@ class VectorStore:
         
         return chunks
     
-    def load_documents(self, file_path: str):
-        """
-        Загрузка документов из файла в векторное хранилище.
-        
-        Args:
-            file_path: путь к файлу с документами
-        """
-        # Проверка существования файла
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Файл {file_path} не найден")
-        
-        # Чтение файла (UTF-8 или Windows-1251, если файл сохранён в другой кодировке)
-        text = self._read_text_file(file_path)
-        
-        # Препроцессинг: очистка текста, затем разбиение на чанки (схема RAG)
-        text = self._clean_text(text)
-        chunks = self._chunk_text(text)
-        print(f"Текст разбит на {len(chunks)} чанков")
-        
-        # Проверка, не загружены ли уже документы
-        if self.collection.count() > 0:
-            print("Документы уже загружены в коллекцию")
-            return
-        
-        # Создание embeddings и добавление в ChromaDB
-        documents = []
-        ids = []
-        embeddings = []
-        
-        for i, chunk in enumerate(chunks):
-            # Создание embedding через OpenAI
-            embedding = self._create_embedding(chunk)
-            
-            documents.append(chunk)
-            ids.append(f"doc_{i}")
-            embeddings.append(embedding)
-            
-            if (i + 1) % 10 == 0:
-                print(f"Обработано {i + 1}/{len(chunks)} чанков")
-        
-        # Добавление в ChromaDB батчами
-        self.collection.add(
-            documents=documents,
-            embeddings=embeddings,
-            ids=ids
-        )
-        
-        print(f"Загружено {len(chunks)} документов в коллекцию '{self.collection_name}'")
-    
     def load_documents_from_folder(self, folder_path: str):
         """
         Загрузка всех .txt файлов из папки с метаданными source и code для фильтрации.
@@ -387,7 +333,7 @@ class VectorStore:
             query: текст запроса
             top_k: количество документов для возврата
             metadata_filter: фильтр по метаданным ChromaDB, например {"code": "ГПК РФ"}
-                            или {"source": "claim_pretenziya"}. None — без фильтра.
+                            или {"source": "ПРЕТЕНЗИЯ"}. None — без фильтра.
             
         Returns:
             список документов с метаданными (text, id, distance, source, code)
@@ -443,8 +389,7 @@ if __name__ == "__main__":
     vector_store = VectorStore(collection_name="test_collection")
     
     # Загрузка документов
-    if os.path.exists("data/docs.txt"):
-        vector_store.load_documents("data/docs.txt")
+    vector_store.load_documents_from_folder("data")
     
     # Поиск
     results = vector_store.search("Что такое машинное обучение?", top_k=3)
