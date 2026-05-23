@@ -16,22 +16,6 @@ else:
     load_dotenv()
 
 from datasets import Dataset
-from ragas import evaluate
-
-# Правильный импорт для RAGAS 0.4.x - используем классы метрик
-try:
-    # Новый способ импорта (RAGAS 0.4+)
-    from ragas.metrics._faithfulness import Faithfulness
-    from ragas.metrics._context_precision import ContextPrecision
-    faithfulness = Faithfulness
-    context_precision = ContextPrecision
-except ImportError:
-    try:
-        # Альтернативный импорт из collections
-        from ragas.metrics.collections import faithfulness, context_precision
-    except ImportError:
-        # Fallback на старый импорт
-        from ragas.metrics import faithfulness, context_precision
 
 from rag_pipeline import RAGPipeline
 
@@ -41,6 +25,27 @@ QUESTIONS_FILE = Path(__file__).parent / "evaluation_questions.txt"
 
 # Сколько вопросов использовать для оценки (первые N из файла)
 MAX_QUESTIONS = 3
+
+
+def _get_ragas_components():
+    """Lazy-load RAGAS so non-RAGAS helpers remain importable in lightweight tests."""
+    from ragas import evaluate
+
+    # Правильный импорт для RAGAS 0.4.x - используем классы метрик
+    try:
+        # Новый способ импорта (RAGAS 0.4+)
+        from ragas.metrics._faithfulness import Faithfulness
+        from ragas.metrics._context_precision import ContextPrecision
+        faithfulness = Faithfulness
+        context_precision = ContextPrecision
+    except ImportError:
+        try:
+            # Альтернативный импорт из collections
+            from ragas.metrics.collections import faithfulness, context_precision
+        except ImportError:
+            # Fallback на старый импорт
+            from ragas.metrics import faithfulness, context_precision
+    return evaluate, faithfulness, context_precision
 
 # Фильтр по ключевым словам (как в app.py) — для согласованной оценки с ботом
 QUERY_TO_FILTER = {
@@ -170,9 +175,10 @@ def run_ragas_evaluation(pipeline):
     dataset = prepare_dataset(pipeline, questions)
     
     print("[*] Запуск метрик RAGAS (Faithfulness, Context Precision)...")
+    evaluate_fn, faithfulness, context_precision = _get_ragas_components()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
-        result = evaluate(dataset=dataset, metrics=metrics_to_use)
+        result = evaluate_fn(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
         print(f"[ОШИБКА] Оценка RAGAS: {e}\n")
         return False
@@ -218,9 +224,10 @@ def run_ragas_single(question: str, answer: str, contexts: list):
         "ground_truth": [answer[:100]],
     }
     dataset = Dataset.from_dict(dataset_dict)
+    evaluate_fn, faithfulness, context_precision = _get_ragas_components()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
-        result = evaluate(dataset=dataset, metrics=metrics_to_use)
+        result = evaluate_fn(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
         print(f"\n[!] Ошибка RAGAS: {e}\n")
         return
@@ -286,9 +293,10 @@ def evaluate_rag_system():
     dataset = prepare_dataset(pipeline, questions)
     print("=" * 70)
     print("\n[*] Запуск метрик RAGAS (1–2 мин)...\n")
+    evaluate_fn, faithfulness, context_precision = _get_ragas_components()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
-        result = evaluate(dataset=dataset, metrics=metrics_to_use)
+        result = evaluate_fn(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
         print(f"[ОШИБКА] Ошибка при оценке: {e}")
         sys.exit(1)
