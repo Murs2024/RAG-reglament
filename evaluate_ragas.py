@@ -56,7 +56,6 @@ QUERY_TO_FILTER = {
     "апк": "АПК РФ",
     "арбитраж": "АПК РФ",
     "претензи": "претензия",
-    "письм": "письмо",
 }
 
 
@@ -272,7 +271,6 @@ def evaluate_rag_system():
             collection_name="api_rag_collection",
             cache_db_path="api_rag_cache.db",
             data_dir="data",
-            data_file="data/docs.txt",
             model="gpt-4o-mini"
         )
         print("\n[OK] RAG система готова к оценке\n")
