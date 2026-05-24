@@ -6,6 +6,8 @@
 import os
 import sys
 from pathlib import Path
+from typing import Any
+
 from dotenv import load_dotenv
 
 # Загрузка переменных окружения из .env файла
@@ -15,32 +17,34 @@ if env_path.exists():
 else:
     load_dotenv()
 
-from datasets import Dataset
-from ragas import evaluate
-
-# Правильный импорт для RAGAS 0.4.x - используем классы метрик
-try:
-    # Новый способ импорта (RAGAS 0.4+)
-    from ragas.metrics._faithfulness import Faithfulness
-    from ragas.metrics._context_precision import ContextPrecision
-    faithfulness = Faithfulness
-    context_precision = ContextPrecision
-except ImportError:
-    try:
-        # Альтернативный импорт из collections
-        from ragas.metrics.collections import faithfulness, context_precision
-    except ImportError:
-        # Fallback на старый импорт
-        from ragas.metrics import faithfulness, context_precision
-
-from rag_pipeline import RAGPipeline
-
-
 # Файл с вопросами для оценки: один вопрос на строку (в корне проекта)
 QUESTIONS_FILE = Path(__file__).parent / "evaluation_questions.txt"
 
 # Сколько вопросов использовать для оценки (первые N из файла)
 MAX_QUESTIONS = 3
+
+
+def _load_ragas_tools():
+    """Импортирует RAGAS только для команд оценки, чтобы обычные helpers оставались доступными."""
+    from ragas import evaluate
+
+    # Правильный импорт для RAGAS 0.4.x - используем классы метрик
+    try:
+        # Новый способ импорта (RAGAS 0.4+)
+        from ragas.metrics._faithfulness import Faithfulness
+        from ragas.metrics._context_precision import ContextPrecision
+
+        faithfulness = Faithfulness
+        context_precision = ContextPrecision
+    except ImportError:
+        try:
+            # Альтернативный импорт из collections
+            from ragas.metrics.collections import faithfulness, context_precision
+        except ImportError:
+            # Fallback на старый импорт
+            from ragas.metrics import faithfulness, context_precision
+
+    return evaluate, faithfulness, context_precision
 
 # Фильтр по ключевым словам (как в app.py) — для согласованной оценки с ботом
 QUERY_TO_FILTER = {
@@ -56,7 +60,6 @@ QUERY_TO_FILTER = {
     "апк": "АПК РФ",
     "арбитраж": "АПК РФ",
     "претензи": "претензия",
-    "письм": "письмо",
 }
 
 
@@ -93,7 +96,7 @@ def load_questions(exit_on_error: bool = True):
     return lines
 
 
-def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
+def prepare_dataset(pipeline: Any, questions: list) -> Any:
     """
     Подготовка датасета для RAGAS из вопросов.
     
@@ -142,6 +145,8 @@ def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
         "ground_truth": ground_truths_list
     }
     
+    from datasets import Dataset
+
     dataset = Dataset.from_dict(dataset_dict)
     return dataset
 
@@ -171,6 +176,7 @@ def run_ragas_evaluation(pipeline):
     dataset = prepare_dataset(pipeline, questions)
     
     print("[*] Запуск метрик RAGAS (Faithfulness, Context Precision)...")
+    evaluate, faithfulness, context_precision = _load_ragas_tools()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
@@ -218,7 +224,10 @@ def run_ragas_single(question: str, answer: str, contexts: list):
         "contexts": [contexts],
         "ground_truth": [answer[:100]],
     }
+    from datasets import Dataset
+
     dataset = Dataset.from_dict(dataset_dict)
+    evaluate, faithfulness, context_precision = _load_ragas_tools()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
@@ -267,12 +276,13 @@ def evaluate_rag_system():
     
     # Инициализация RAG pipeline
     try:
+        from rag_pipeline import RAGPipeline
+
         print("[*] Инициализация RAG системы (API mode)...\n")
         pipeline = RAGPipeline(
             collection_name="api_rag_collection",
             cache_db_path="api_rag_cache.db",
             data_dir="data",
-            data_file="data/docs.txt",
             model="gpt-4o-mini"
         )
         print("\n[OK] RAG система готова к оценке\n")
@@ -288,6 +298,7 @@ def evaluate_rag_system():
     dataset = prepare_dataset(pipeline, questions)
     print("=" * 70)
     print("\n[*] Запуск метрик RAGAS (1–2 мин)...\n")
+    evaluate, faithfulness, context_precision = _load_ragas_tools()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
