@@ -15,24 +15,6 @@ if env_path.exists():
 else:
     load_dotenv()
 
-from datasets import Dataset
-from ragas import evaluate
-
-# Правильный импорт для RAGAS 0.4.x - используем классы метрик
-try:
-    # Новый способ импорта (RAGAS 0.4+)
-    from ragas.metrics._faithfulness import Faithfulness
-    from ragas.metrics._context_precision import ContextPrecision
-    faithfulness = Faithfulness
-    context_precision = ContextPrecision
-except ImportError:
-    try:
-        # Альтернативный импорт из collections
-        from ragas.metrics.collections import faithfulness, context_precision
-    except ImportError:
-        # Fallback на старый импорт
-        from ragas.metrics import faithfulness, context_precision
-
 from rag_pipeline import RAGPipeline
 
 
@@ -92,7 +74,36 @@ def load_questions(exit_on_error: bool = True):
     return lines
 
 
-def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
+def _dataset_from_dict(dataset_dict: dict):
+    """Создаёт Dataset лениво, чтобы простые тесты не импортировали RAGAS-зависимости."""
+    from datasets import Dataset
+
+    return Dataset.from_dict(dataset_dict)
+
+
+def _load_ragas():
+    """Ленивая загрузка RAGAS и метрик: нужна только при запуске оценки."""
+    from ragas import evaluate
+
+    # Правильный импорт для RAGAS 0.4.x - используем классы метрик
+    try:
+        # Новый способ импорта (RAGAS 0.4+)
+        from ragas.metrics._faithfulness import Faithfulness
+        from ragas.metrics._context_precision import ContextPrecision
+        faithfulness = Faithfulness
+        context_precision = ContextPrecision
+    except ImportError:
+        try:
+            # Альтернативный импорт из collections
+            from ragas.metrics.collections import faithfulness, context_precision
+        except ImportError:
+            # Fallback на старый импорт
+            from ragas.metrics import faithfulness, context_precision
+
+    return evaluate, faithfulness, context_precision
+
+
+def prepare_dataset(pipeline: RAGPipeline, questions: list):
     """
     Подготовка датасета для RAGAS из вопросов.
     
@@ -141,7 +152,7 @@ def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
         "ground_truth": ground_truths_list
     }
     
-    dataset = Dataset.from_dict(dataset_dict)
+    dataset = _dataset_from_dict(dataset_dict)
     return dataset
 
 
@@ -170,6 +181,7 @@ def run_ragas_evaluation(pipeline):
     dataset = prepare_dataset(pipeline, questions)
     
     print("[*] Запуск метрик RAGAS (Faithfulness, Context Precision)...")
+    evaluate, faithfulness, context_precision = _load_ragas()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
@@ -217,7 +229,8 @@ def run_ragas_single(question: str, answer: str, contexts: list):
         "contexts": [contexts],
         "ground_truth": [answer[:100]],
     }
-    dataset = Dataset.from_dict(dataset_dict)
+    dataset = _dataset_from_dict(dataset_dict)
+    evaluate, faithfulness, context_precision = _load_ragas()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
@@ -286,6 +299,7 @@ def evaluate_rag_system():
     dataset = prepare_dataset(pipeline, questions)
     print("=" * 70)
     print("\n[*] Запуск метрик RAGAS (1–2 мин)...\n")
+    evaluate, faithfulness, context_precision = _load_ragas()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
