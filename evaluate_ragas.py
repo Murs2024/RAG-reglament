@@ -1,5 +1,5 @@
 """
-Оценка качества RAG системы через RAGAS для assistant_api.
+Оценка качества RAG системы через RAGAS.
 Использует OpenAI API для RAG и для метрик RAGAS.
 """
 
@@ -14,24 +14,6 @@ if env_path.exists():
     load_dotenv(env_path)
 else:
     load_dotenv()
-
-from datasets import Dataset
-from ragas import evaluate
-
-# Правильный импорт для RAGAS 0.4.x - используем классы метрик
-try:
-    # Новый способ импорта (RAGAS 0.4+)
-    from ragas.metrics._faithfulness import Faithfulness
-    from ragas.metrics._context_precision import ContextPrecision
-    faithfulness = Faithfulness
-    context_precision = ContextPrecision
-except ImportError:
-    try:
-        # Альтернативный импорт из collections
-        from ragas.metrics.collections import faithfulness, context_precision
-    except ImportError:
-        # Fallback на старый импорт
-        from ragas.metrics import faithfulness, context_precision
 
 from rag_pipeline import RAGPipeline
 
@@ -57,6 +39,32 @@ QUERY_TO_FILTER = {
     "арбитраж": "АПК РФ",
     "претензи": "претензия",
 }
+
+
+def _load_ragas_dependencies():
+    """Загружает RAGAS только для команд оценки, чтобы обычные helpers импортировались без optional-интеграций."""
+    from datasets import Dataset
+    from ragas import evaluate
+
+    # Правильный импорт для RAGAS 0.4.x - используем классы метрик
+    try:
+        # Новый способ импорта (RAGAS 0.4+)
+        from ragas.metrics._faithfulness import Faithfulness
+        from ragas.metrics._context_precision import ContextPrecision
+        faithfulness = Faithfulness
+        context_precision = ContextPrecision
+    except ImportError:
+        try:
+            # Альтернативный импорт из collections
+            from ragas.metrics.collections import faithfulness, context_precision
+        except ImportError:
+            # Fallback на старый импорт
+            from ragas.metrics import faithfulness, context_precision
+    return Dataset, evaluate, faithfulness, context_precision
+
+
+def _build_metric(metric):
+    return metric() if callable(metric) else metric
 
 
 def _infer_filter(query: str):
@@ -92,7 +100,7 @@ def load_questions(exit_on_error: bool = True):
     return lines
 
 
-def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
+def prepare_dataset(pipeline: RAGPipeline, questions: list):
     """
     Подготовка датасета для RAGAS из вопросов.
     
@@ -141,6 +149,7 @@ def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
         "ground_truth": ground_truths_list
     }
     
+    Dataset, _, _, _ = _load_ragas_dependencies()
     dataset = Dataset.from_dict(dataset_dict)
     return dataset
 
@@ -170,7 +179,8 @@ def run_ragas_evaluation(pipeline):
     dataset = prepare_dataset(pipeline, questions)
     
     print("[*] Запуск метрик RAGAS (Faithfulness, Context Precision)...")
-    metrics_to_use = [faithfulness(), context_precision()]
+    _, evaluate, faithfulness, context_precision = _load_ragas_dependencies()
+    metrics_to_use = [_build_metric(faithfulness), _build_metric(context_precision)]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
@@ -217,8 +227,9 @@ def run_ragas_single(question: str, answer: str, contexts: list):
         "contexts": [contexts],
         "ground_truth": [answer[:100]],
     }
+    Dataset, evaluate, faithfulness, context_precision = _load_ragas_dependencies()
     dataset = Dataset.from_dict(dataset_dict)
-    metrics_to_use = [faithfulness(), context_precision()]
+    metrics_to_use = [_build_metric(faithfulness), _build_metric(context_precision)]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
@@ -286,7 +297,8 @@ def evaluate_rag_system():
     dataset = prepare_dataset(pipeline, questions)
     print("=" * 70)
     print("\n[*] Запуск метрик RAGAS (1–2 мин)...\n")
-    metrics_to_use = [faithfulness(), context_precision()]
+    _, evaluate, faithfulness, context_precision = _load_ragas_dependencies()
+    metrics_to_use = [_build_metric(faithfulness), _build_metric(context_precision)]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
