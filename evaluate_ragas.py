@@ -16,22 +16,6 @@ else:
     load_dotenv()
 
 from datasets import Dataset
-from ragas import evaluate
-
-# Правильный импорт для RAGAS 0.4.x - используем классы метрик
-try:
-    # Новый способ импорта (RAGAS 0.4+)
-    from ragas.metrics._faithfulness import Faithfulness
-    from ragas.metrics._context_precision import ContextPrecision
-    faithfulness = Faithfulness
-    context_precision = ContextPrecision
-except ImportError:
-    try:
-        # Альтернативный импорт из collections
-        from ragas.metrics.collections import faithfulness, context_precision
-    except ImportError:
-        # Fallback на старый импорт
-        from ragas.metrics import faithfulness, context_precision
 
 from rag_pipeline import RAGPipeline
 
@@ -57,6 +41,37 @@ QUERY_TO_FILTER = {
     "арбитраж": "АПК РФ",
     "претензи": "претензия",
 }
+
+
+def _load_ragas_components():
+    """Ленивая загрузка RAGAS: нужна только для команд eval/analyze."""
+    from ragas import evaluate
+
+    # Правильный импорт для RAGAS 0.4.x - используем классы метрик
+    try:
+        # Новый способ импорта (RAGAS 0.4+)
+        from ragas.metrics._faithfulness import Faithfulness
+        from ragas.metrics._context_precision import ContextPrecision
+        faithfulness = Faithfulness
+        context_precision = ContextPrecision
+    except ImportError:
+        try:
+            # Альтернативный импорт из collections
+            from ragas.metrics.collections import faithfulness, context_precision
+        except ImportError:
+            # Fallback на старый импорт
+            from ragas.metrics import faithfulness, context_precision
+
+    return evaluate, faithfulness, context_precision
+
+
+def _build_ragas_metrics():
+    evaluate, faithfulness, context_precision = _load_ragas_components()
+    metrics = [
+        faithfulness() if callable(faithfulness) else faithfulness,
+        context_precision() if callable(context_precision) else context_precision,
+    ]
+    return evaluate, metrics
 
 
 def _infer_filter(query: str):
@@ -170,9 +185,9 @@ def run_ragas_evaluation(pipeline):
     dataset = prepare_dataset(pipeline, questions)
     
     print("[*] Запуск метрик RAGAS (Faithfulness, Context Precision)...")
-    metrics_to_use = [faithfulness(), context_precision()]
+    ragas_evaluate, metrics_to_use = _build_ragas_metrics()
     try:
-        result = evaluate(dataset=dataset, metrics=metrics_to_use)
+        result = ragas_evaluate(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
         print(f"[ОШИБКА] Оценка RAGAS: {e}\n")
         return False
@@ -218,9 +233,9 @@ def run_ragas_single(question: str, answer: str, contexts: list):
         "ground_truth": [answer[:100]],
     }
     dataset = Dataset.from_dict(dataset_dict)
-    metrics_to_use = [faithfulness(), context_precision()]
+    ragas_evaluate, metrics_to_use = _build_ragas_metrics()
     try:
-        result = evaluate(dataset=dataset, metrics=metrics_to_use)
+        result = ragas_evaluate(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
         print(f"\n[!] Ошибка RAGAS: {e}\n")
         return
@@ -286,9 +301,9 @@ def evaluate_rag_system():
     dataset = prepare_dataset(pipeline, questions)
     print("=" * 70)
     print("\n[*] Запуск метрик RAGAS (1–2 мин)...\n")
-    metrics_to_use = [faithfulness(), context_precision()]
+    ragas_evaluate, metrics_to_use = _build_ragas_metrics()
     try:
-        result = evaluate(dataset=dataset, metrics=metrics_to_use)
+        result = ragas_evaluate(dataset=dataset, metrics=metrics_to_use)
     except Exception as e:
         print(f"[ОШИБКА] Ошибка при оценке: {e}")
         sys.exit(1)
