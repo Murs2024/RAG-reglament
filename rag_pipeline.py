@@ -252,7 +252,7 @@ class RAGPipeline:
         Args:
             user_query: запрос пользователя
             use_cache: использовать ли кеш
-            metadata_filter: фильтр поиска, напр. {"code": "ГПК РФ"} или {"source": "claim_pretenziya"}
+            metadata_filter: фильтр поиска, напр. {"code": "ГПК РФ"} или {"source": "ПРЕТЕНЗИЯ"}
             
         Returns:
             словарь с ответом и метаданными

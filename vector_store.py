@@ -9,7 +9,7 @@ from chromadb.config import Settings
 from typing import List, Dict, Any, Optional
 
 # Соответствие имени файла (без .txt) и кода для фильтра по кодексу/типу документа
-# Обновлено под ваши файлы в data/
+# Актуально для текущих файлов в data/
 FILE_TO_CODE = {
     # Иски и кодексы
     "Исковое в суд по ГПК": "ГПК РФ",
@@ -21,11 +21,6 @@ FILE_TO_CODE = {
     "gk_rf3": "ГК РФ",
     # Претензия
     "ПРЕТЕНЗИЯ": "претензия",
-    # Старые имена (если вернёте шаблоны)
-    "letter_template": "письмо",
-    "claim_pretenziya": "претензия",
-    "claim_gpk": "ГПК РФ",
-    "claim_apk": "АПК РФ",
 }
 import os
 from openai import OpenAI
@@ -387,7 +382,7 @@ class VectorStore:
             query: текст запроса
             top_k: количество документов для возврата
             metadata_filter: фильтр по метаданным ChromaDB, например {"code": "ГПК РФ"}
-                            или {"source": "claim_pretenziya"}. None — без фильтра.
+                            или {"source": "ПРЕТЕНЗИЯ"}. None — без фильтра.
             
         Returns:
             список документов с метаданными (text, id, distance, source, code)
