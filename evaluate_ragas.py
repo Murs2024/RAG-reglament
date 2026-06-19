@@ -15,25 +15,35 @@ if env_path.exists():
 else:
     load_dotenv()
 
-from datasets import Dataset
-from ragas import evaluate
-
-# Правильный импорт для RAGAS 0.4.x - используем классы метрик
-try:
-    # Новый способ импорта (RAGAS 0.4+)
-    from ragas.metrics._faithfulness import Faithfulness
-    from ragas.metrics._context_precision import ContextPrecision
-    faithfulness = Faithfulness
-    context_precision = ContextPrecision
-except ImportError:
-    try:
-        # Альтернативный импорт из collections
-        from ragas.metrics.collections import faithfulness, context_precision
-    except ImportError:
-        # Fallback на старый импорт
-        from ragas.metrics import faithfulness, context_precision
-
 from rag_pipeline import RAGPipeline
+
+
+def _get_dataset_class():
+    """Загружает Dataset только для сценариев, которым нужен RAGAS dataset."""
+    from datasets import Dataset
+    return Dataset
+
+
+def _get_ragas_components():
+    """Ленивая загрузка RAGAS, чтобы быстрые тесты не требовали optional integrations."""
+    from ragas import evaluate
+
+    # Правильный импорт для RAGAS 0.4.x - используем классы метрик
+    try:
+        # Новый способ импорта (RAGAS 0.4+)
+        from ragas.metrics._faithfulness import Faithfulness
+        from ragas.metrics._context_precision import ContextPrecision
+        faithfulness = Faithfulness
+        context_precision = ContextPrecision
+    except ImportError:
+        try:
+            # Альтернативный импорт из collections
+            from ragas.metrics.collections import faithfulness, context_precision
+        except ImportError:
+            # Fallback на старый импорт
+            from ragas.metrics import faithfulness, context_precision
+
+    return evaluate, faithfulness, context_precision
 
 
 # Файл с вопросами для оценки: один вопрос на строку (в корне проекта)
@@ -56,7 +66,6 @@ QUERY_TO_FILTER = {
     "апк": "АПК РФ",
     "арбитраж": "АПК РФ",
     "претензи": "претензия",
-    "письм": "письмо",
 }
 
 
@@ -93,7 +102,7 @@ def load_questions(exit_on_error: bool = True):
     return lines
 
 
-def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
+def prepare_dataset(pipeline: RAGPipeline, questions: list):
     """
     Подготовка датасета для RAGAS из вопросов.
     
@@ -142,6 +151,7 @@ def prepare_dataset(pipeline: RAGPipeline, questions: list) -> Dataset:
         "ground_truth": ground_truths_list
     }
     
+    Dataset = _get_dataset_class()
     dataset = Dataset.from_dict(dataset_dict)
     return dataset
 
@@ -171,6 +181,7 @@ def run_ragas_evaluation(pipeline):
     dataset = prepare_dataset(pipeline, questions)
     
     print("[*] Запуск метрик RAGAS (Faithfulness, Context Precision)...")
+    evaluate, faithfulness, context_precision = _get_ragas_components()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
@@ -218,7 +229,9 @@ def run_ragas_single(question: str, answer: str, contexts: list):
         "contexts": [contexts],
         "ground_truth": [answer[:100]],
     }
+    Dataset = _get_dataset_class()
     dataset = Dataset.from_dict(dataset_dict)
+    evaluate, faithfulness, context_precision = _get_ragas_components()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
@@ -272,7 +285,6 @@ def evaluate_rag_system():
             collection_name="api_rag_collection",
             cache_db_path="api_rag_cache.db",
             data_dir="data",
-            data_file="data/docs.txt",
             model="gpt-4o-mini"
         )
         print("\n[OK] RAG система готова к оценке\n")
@@ -288,6 +300,7 @@ def evaluate_rag_system():
     dataset = prepare_dataset(pipeline, questions)
     print("=" * 70)
     print("\n[*] Запуск метрик RAGAS (1–2 мин)...\n")
+    evaluate, faithfulness, context_precision = _get_ragas_components()
     metrics_to_use = [faithfulness(), context_precision()]
     try:
         result = evaluate(dataset=dataset, metrics=metrics_to_use)
