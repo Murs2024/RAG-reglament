@@ -57,6 +57,7 @@ def test_infer_filter():
     assert _infer_filter("иск по ГПК") == {"code": "ГПК РФ"}
     assert _infer_filter("арбитражный суд АПК") == {"code": "АПК РФ"}
     assert _infer_filter("претензия по договору") == {"code": "претензия"}
+    assert _infer_filter("деловое письмо клиенту") is None
     assert _infer_filter("что-то без ключевых слов") is None
 
 

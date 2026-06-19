@@ -21,11 +21,6 @@ FILE_TO_CODE = {
     "gk_rf3": "ГК РФ",
     # Претензия
     "ПРЕТЕНЗИЯ": "претензия",
-    # Старые имена (если вернёте шаблоны)
-    "letter_template": "письмо",
-    "claim_pretenziya": "претензия",
-    "claim_gpk": "ГПК РФ",
-    "claim_apk": "АПК РФ",
 }
 import os
 from openai import OpenAI
@@ -386,8 +381,8 @@ class VectorStore:
         Args:
             query: текст запроса
             top_k: количество документов для возврата
-            metadata_filter: фильтр по метаданным ChromaDB, например {"code": "ГПК РФ"}
-                            или {"source": "claim_pretenziya"}. None — без фильтра.
+            metadata_filter: фильтр по метаданным ChromaDB, например {"code": "ГПК РФ"}.
+                            None — без фильтра.
             
         Returns:
             список документов с метаданными (text, id, distance, source, code)
