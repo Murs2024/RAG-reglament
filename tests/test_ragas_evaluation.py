@@ -78,7 +78,6 @@ def test_prepare_dataset_structure():
         collection_name="api_rag_collection",
         cache_db_path="api_rag_cache.db",
         data_dir="data",
-        data_file="data/docs.txt",
         model="gpt-4o-mini",
     )
     dataset = prepare_dataset(pipeline, one_question)
@@ -107,7 +106,6 @@ def test_run_ragas_evaluation_completes():
         collection_name="api_rag_collection",
         cache_db_path="api_rag_cache.db",
         data_dir="data",
-        data_file="data/docs.txt",
         model="gpt-4o-mini",
     )
     result = run_ragas_evaluation(pipeline)
